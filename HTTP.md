@@ -1,4 +1,4 @@
-# HTTP란 무엇인가
+# HTTP
 
 - Hyper Text Transfer Protocol약자로 하이퍼텍스트 간의 문서를 교환하기 위하여 사용된 통신 규약이다.
 
