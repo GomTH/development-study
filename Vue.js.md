@@ -16,13 +16,13 @@
   >
   > ViewModel이 중간에서 그 컨트롤러 역할을 하는 것이 MVVM 패턴이다. Vue.js가 담당하며, 미리 정의된 옵션들을 통해서 데이터의 변화를 감지하거나 이벤트를 등록한다.
 
-  ![MVVM](/Users/paul/Documents/web-development-study/Images/MVVM.jpeg)
+  ![MVVM](./Images/MVVM.jpeg)
 
 - Virtual Dom
 
   > Virtual Dom 즉 가상 Dom이란 DOM(Document Object Model)의 복사본을 메모리 내에 저장해서 사용하여, Javascript로 DOM을 조작하며 생긴 변경 사항을 가상의 위치에서 처리함으로, 실제 DOM의 렌더링을 최소화 하는 방식이다.(Virtual Dom을 사용한 예는 대표적으로 Vue, React등의 프레임워크들이 있다.)
 
-  ![VirtualDom](/Users/paul/Documents/web-development-study/Images/VirtualDom.png)
+  ![VirtualDom](./Images/VirtualDom.png)
 
 - Component
 
