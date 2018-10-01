@@ -242,7 +242,7 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
 
   **!!!** mounted훅에서 유의할 점은, 부모와 자식 관계의 컴포넌트에서 mounted발생 순서가 **자식 -> 부모** 순서로 진행된다는 것이다.(당연히 부모 -> 자식 이라고 생각했을것이다.)
 
-  ![initialisation workflow](./Images/initialisation workflow.png)
+  ![Hookworkflow](./Images/Hookworkflow.png)
 
   위 그림처럼 Created훅은 **부모 -> 자식** 순서로 진행되지만 mounted는 그렇지 않은 것을 확인할 수 있다.(mounted 훅에서 부모는 자식의 훅이 끝나기를 기다린 후 진행됨을 알 수 있다.)
 
