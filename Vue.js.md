@@ -279,3 +279,30 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
 
 ---
 
+### Component
+
+> 뷰 컴포넌트란 화면에 그려지는 View의 단위를 쪼개서 재활용이 가능한 형태로 관리하는 것을 말한다. (즉, 컴포넌트란 애플리케이션을 구성하는 요소라고 할 수 있다.)
+>
+> 컴포넌트를 사용함으로써 재사용성을 높일 수 있고, 단위별(기능별)로 쪼개어 관리하기에 테스트가 용이하다.
+
+![components](./Images/components.png)
+
+- 기본적인 컴포넌트 등록 방법은 아래와 같다.
+
+  ```html
+  <div id="app">
+    <!-- 템플릿에 컴포넌트 적용 -->
+    <my-component></my-component>
+  </div>
+  ```
+
+  ```javascript
+  // 등록
+  Vue.component('my-component', {
+    template: '<div>A custom component!</div>'
+  })
+  // Vue 인스턴스 생성
+  new Vue({
+    el: '#app'
+  })
+  ```
