@@ -6,7 +6,7 @@
 
 ### 특징
 
-- MVVM Pattern
+- **MVVM Pattern**
 
   > Model - View - ViewModel의 줄임말로 로직과 UI의 분리를 위해 설계된 패턴이다.
   >
@@ -18,13 +18,13 @@
 
   ![MVVM](./Images/MVVM.jpeg)
 
-- Virtual Dom
+- **Virtual Dom**
 
   > Virtual Dom 즉 가상 Dom이란 DOM(Document Object Model)의 복사본을 메모리 내에 저장해서 사용하여, Javascript로 DOM을 조작하며 생긴 변경 사항을 가상의 위치에서 처리함으로, 실제 DOM의 렌더링을 최소화 하는 방식이다.(Virtual Dom을 사용한 예는 대표적으로 Vue, React등의 프레임워크들이 있다.)
 
   ![VirtualDom](./Images/VirtualDom.png)
 
-- Component
+- **Component**
 
   > 화면에 보여지는 페이지를 구성하는 요소를 쪼개서 재활용이 가능한 형태로 관리하는 것, 하나의 컴포넌트는 미리 정의된 옵션을 갖고 있는 Vue 인스턴스이다.
   >
@@ -48,7 +48,7 @@ var vm = new Vue({
 
 ##### Options
 
-- data
+- **data**
 
   > 컴포넌트의 속성을 정의하는 객체.
   >
@@ -74,7 +74,7 @@ var vm = new Vue({
   })
   ```
 
-- el
+- **el**
 
   > 뷰 인스턴스에 연결할 HTML DOM 요소를 지정한다.
   >
@@ -91,7 +91,7 @@ var vm = new Vue({
   </script>
   ```
 
-- methods
+- **methods**
 
   > 뷰 인스턴스에서 사용할 메서드들을 정의하는 객체.
   >
@@ -121,7 +121,7 @@ var vm = new Vue({
   </script>
   ```
 
-- watch
+- **watch**
 
   > 계산형 속성과 같이 하나의 데이터를 기반으로 다른 데이터를 변경할 필요가 있을 때 사용한다. (주로 긴 처리 시간이 필요한 비동기 처리에 적합하다.)
   >
@@ -169,7 +169,7 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
 
 > 라이프사이클 중에 가장 처음 실행되는 단계이다. 이 단계는 컴포넌트가 DOM에 추가되기 전이다.(서버 렌더링에서도 지원되는 훅) ***! 아직 컴포넌트가 DOM에 추가되기 전이기 때문에 DOM에 접근하거나 this.$el를 사용할 수 없다.***
 
-- beforeCreate
+- **beforeCreate**
 
   모든 훅 중에 가장 먼저 실행되는 훅이다. 아직 data와 events(on, once, off, emit 등)가 세팅되지 않은 시점이다.
 
@@ -189,7 +189,7 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
   </script>
   ```
 
-- created
+- **created**
 
   created 훅에서는 data와 events가 활성화 되어 접근이 가능하다. 하지만 template, Virtual DOM은 마운트 및 렌더링되지 않은 상태이다.
 
@@ -219,11 +219,11 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
 
 > Mounting 단계는 초기 렌더링 직전에 컴포넌트에 직접 접근이 가능하다. (서버 렌더링 에서는 지원하지 않는다.)
 
-- beforeMount
+- **beforeMount**
 
   beforeMount 훅은 템플릿과 render함수들이 컴파일 된 후 첫 렌더링이 일어나기 직전에 실행된다. (대부분의 경우 사용하지 않는 것이 좋다. ~~사용하지도 않는다.~~)
 
-- mounted
+- **mounted**
 
   mounted 훅에서는 컴포넌트, 템플릿, 렌더링된 돔에 접근할 수 있다.( **!** 모든 하위 컴포넌트가 마운트된 상태를 보장하지는 않는다.)
 
@@ -250,11 +250,11 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
 
 > 컴포넌트의 속성들이 변경되는 등의 이유로 재 렌더링이 발생되면 실행된다.(디버깅이나 프로파일링 등을 위해 컴포넌트 재 렌더링 시점을 알고 싶을때 사용할 수 있다.)
 
-- beforeUpdate
+- **beforeUpdate**
 
   컴포넌트의 데이터가 변하여 업데이트 사이클이 시작될때 실행된다.(정확히는 DOM이 재 렌더링 되고 패치되기 직전에 실행된다.) 재 렌더링 전의 새 상태의 데이터를 얻을 수 있고 더 많은 변경이 가능하다.(이 변경으로 인한 재 렌더링은 트리거되지 않는다.)
 
-- updated
+- **updated**
 
   컴포넌트의 데이터가 변하여 재 렌더링이 일어난 후에 실행된다. DOM의 업데이트가 완료된 상태이므로 종속적인 연산이 가능하다.(그러나 여기서 상태를 변경하면 무한루프에 빠질 수 있다.)
 
@@ -273,7 +273,7 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
 
 ##### Destruction: 해체 단계
 
-- beforeDestroy
+- **beforeDestroy**
 
    이 훅은 해체(뷰 인스턴스 제거)된 후에 호출된다. 뷰 인스턴스의 모든 디렉티브가 바인딩 해제되고, 모든 이벤트 리스너가 제거되며, 모든 하위 뷰 인스턴스도 삭제된다.(서버 렌더링시 호출되지 않는다.)
 
@@ -287,7 +287,7 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
 
 ![components](./Images/components.png)
 
-- 기본적인 컴포넌트 등록 방법은 아래와 같다.
+- **기본적인 컴포넌트 등록 방법은 아래와 같다.**
 
   ```html
   <div id="app">
@@ -306,3 +306,80 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
     el: '#app'
   })
   ```
+
+
+
+
+##### 컴포넌트 간 통신(상호작용)
+
+> 부모 컴포넌트는 Props를 통해서 자식 컴포넌트에게 데이터를 전달할 수 있다. 데이터 전달은 부모에서 자식으로 단방향이며, 양방향통신도 가능하지만 어플리케이션이 복잡해지고, 유지보수가 어려워져 권장하지 않는다.
+>
+> 자식 컴포넌트는 $emit을 사용해 부모 컴포넌트로 이벤트를 발신할 수 있다.
+
+![propsevents](./Images/propsevents.png)
+
+- **props로 데이터 전달하기 (부모 -> 자식)**
+
+  부모-자식 컴포넌트 간 상호작용은 속성(Props)과 이벤트로 이루어진다. 각 컴포넌트 내부의 데이터는 캡슐화 되기 때문에 다른 컴포넌트나 앱에서 접근할 수 없다. 따라서 속성과 이벤트를 이용해야 한다.
+
+  ```javascript
+  Vue.component('child', {
+    // props 정의
+    props: ['message'],
+    // 데이터와 마찬가지로 prop은 템플릿 내부에서 사용할 수 있으며
+    // vm의 this.message로 사용할 수 있습니다.
+    template: '<span>{{ message }}</span>'
+  })
+  ```
+
+  그런 다음 일반 문자열(즉 props데이터)을 다음과 같이 전달할 수 있다.
+
+  ```html
+  <child message="안녕하세요!"></child>
+  ```
+
+- **사용자 지정 이벤트 (자식 -> 부모)**
+
+  자식 컴포넌트에서 이벤트를 발신($emit)하면 부모 컴포넌트에서 v-on 디렉티브를 이용해 이벤트를 수신한다.
+
+  ```html
+  <div id="counter-event-example">
+    <p>{{ total }}</p>
+    <button-counter v-on:increment="incrementTotal"></button-counter>
+    <button-counter v-on:increment="incrementTotal"></button-counter>
+  </div>
+  ```
+
+  ```javascript
+  Vue.component('button-counter', {
+    template: '<button v-on:click="incrementCounter">{{ counter }}</button>',
+    data: function () {
+      return {
+        counter: 0
+      }
+    },
+    methods: {
+      incrementCounter: function () {
+        this.counter += 1
+        this.$emit('increment')
+      }
+    },
+  })
+  
+  new Vue({
+    el: '#counter-event-example',
+    data: {
+      total: 0
+    },
+    methods: {
+      incrementTotal: function () {
+        this.total += 1
+      }
+    }
+  })
+  ```
+
+
+
+##### Single File Component(싱글 파일 컴포넌트)
+
