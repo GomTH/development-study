@@ -379,7 +379,5 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
   })
   ```
 
-
-
 ##### Single File Component(싱글 파일 컴포넌트)
 
