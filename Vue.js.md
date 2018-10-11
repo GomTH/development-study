@@ -56,20 +56,20 @@ var vm = new Vue({
   >
   > data 옵션은 뷰 인스턴스가 관찰하는 객체이므로 변경사항은 즉시 감지되어(반응형) 데이터가 변경되면 화면도 다시 렌더링된다.
 
-  > 프록시란 ? 
+  > **프록시란 ?** 
   >
   > 대리인 이라는 뜻을 가지고 있다. 사용자가 직접 요청을 하기보다는 한 단계 앞에 프록시를 두어 간접적으로 접근하게 한다. 이를 흐름제어라 한다. 프록시를 사용하면, 잘못된 요청을 방지할 수 있다. 
   >
-  > **중요한 것은, 흐름제어만 할 뿐 결과 값을 조작해서는 안 된다.**
+  > *중요한 것은, 흐름제어만 할 뿐 결과 값을 조작해서는 안 된다.*
 
   ```js
   var vm = new Vue({
           data: {
-              name: 'choi',
-              age: 25
+              name: 'paul',
+              age: 19
           },
           created: function() { // 페이지 호출 및 data 등의 옵션 호출 완료 후
-              console.log(this.name); // choi
+              console.log(this.name); // paul
           }
   })
   ```
@@ -173,7 +173,7 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
 
   모든 훅 중에 가장 먼저 실행되는 훅이다. 아직 data와 events(on, once, off, emit 등)가 세팅되지 않은 시점이다.
 
-  ```javascript
+  ```html
   <script>
     export default {
       data () {
@@ -268,7 +268,6 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
     }
   }
   </script>
-  view raw
   ```
 
 ##### Destruction: 해체 단계
@@ -379,5 +378,27 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
   })
   ```
 
-##### Single File Component(싱글 파일 컴포넌트)
+
+
+##### Single File Component(단일 파일 컴포넌트)
+
+> 단일 파일 컴포넌트란 Vue어플리케이션의 복잡도가 증가함에 따라 발생하는 여러 문제들을 해결하기 위해 생겨난 관리 방법
+>
+> ```.vue``` 라는 파일 단위 안에 html(template), js, css 를 관리 할 수 있다.
+
+- 단일 파일 컴포넌트의 구조는 다음과 같다
+
+  ```vue
+  <template>
+  <!-- 컴포넌트의 HTML 즉 템플릿을 작성한다. -->
+  </template>
+  
+  <style>
+  /* 컴포넌트의 CSS를 작성한다. scope옵션을 통해 이 컴포넌트에만 적용되게 할 수 있다. */
+  </style>
+  
+  <script>
+  // 컴포넌트의 SCRIPT를 작성한다.
+  </script>
+  ```
 
