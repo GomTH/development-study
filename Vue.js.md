@@ -46,6 +46,8 @@ var vm = new Vue({
 })
 ```
 
+
+
 ##### Options
 
 - **data**
@@ -165,6 +167,8 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
 
 ![Lifecycle](./Images/Lifecycle.png)
 
+
+
 ##### Creation: 컴포넌트 초기화 단계
 
 > 라이프사이클 중에 가장 처음 실행되는 단계이다. 이 단계는 컴포넌트가 DOM에 추가되기 전이다.(서버 렌더링에서도 지원되는 훅) ***! 아직 컴포넌트가 DOM에 추가되기 전이기 때문에 DOM에 접근하거나 this.$el를 사용할 수 없다.***
@@ -215,6 +219,8 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
   </script>
   ```
 
+
+
 ##### Mounting: DOM 삽입 단계
 
 > Mounting 단계는 초기 렌더링 직전에 컴포넌트에 직접 접근이 가능하다. (서버 렌더링 에서는 지원하지 않는다.)
@@ -246,6 +252,8 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
 
   위 그림처럼 Created훅은 **부모 -> 자식** 순서로 진행되지만 mounted는 그렇지 않은 것을 확인할 수 있다.(mounted 훅에서 부모는 자식의 훅이 끝나기를 기다린 후 진행됨을 알 수 있다.)
 
+
+
 ##### Updating: Diff 및 재 렌더링 단계
 
 > 컴포넌트의 속성들이 변경되는 등의 이유로 재 렌더링이 발생되면 실행된다.(디버깅이나 프로파일링 등을 위해 컴포넌트 재 렌더링 시점을 알고 싶을때 사용할 수 있다.)
@@ -269,6 +277,8 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
   }
   </script>
   ```
+
+
 
 ##### Destruction: 해체 단계
 
@@ -382,7 +392,7 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
 
 ##### Single File Component(단일 파일 컴포넌트)
 
-> 단일 파일 컴포넌트란 Vue어플리케이션의 복잡도가 증가함에 따라 발생하는 여러 문제들을 해결하기 위해 생겨난 관리 방법
+> 단일 파일 컴포넌트란 Vue어플리케이션의 복잡도가 증가함에 따라 발생하는 여러 문제들을 해결하기 위해 생겨난 관리 방법이다.
 >
 > ```.vue``` 라는 파일 단위 안에 html(template), js, css 를 관리 할 수 있다.
 
@@ -401,4 +411,110 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
   // 컴포넌트의 SCRIPT를 작성한다.
   </script>
   ```
+
+---
+
+### Vue Router
+
+> Vue 를 이용한 SPA(Single File Application)를 제작할 때 유용한 **라우팅 라이브러리**이다. Vue Router의 가장 큰 장점은    페이지를 다시 시작하지 않아도(새로고침 하지 않아도) 페이지의 이동, 렌더링이 가능하다는 점이다.
+
+- Vue Router를 사용할때 추가로 해야하는 것은 라우터에 컴포넌트를 매핑한 후, 어떤 주소에서 렌더링 할 지 알려주는 것 뿐이다. 아래의 예제를 통해 알아보자
+
+  ```html
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  
+  <div id="app">
+    <h1>Hello App!</h1>
+    <p>
+      <!-- 네비게이션을 위해 router-link 컴포넌트를 사용합니다. -->
+      <!-- 구체적인 속성은 `to` prop을 이용합니다. -->
+      <!-- 기본적으로 `<router-link>`는 `<a>` 태그로 렌더링됩니다.-->
+      <router-link to="/foo">Go to Foo</router-link>
+      <router-link to="/bar">Go to Bar</router-link>
+    </p>
+    <!-- 라우트 아울렛 -->
+    <!-- 현재 라우트에 맞는 컴포넌트가 렌더링됩니다. -->
+    <router-view></router-view>
+  </div>
+  ```
+
+  ```js
+  // 0. 모듈 시스템 (예: vue-cli)을 이용하고 있다면, Vue와 Vue 라우터를 import 하세요
+  // 그리고 `Vue.use(VueRouter)`를 호출하세요
+  
+  
+  // 1. 라우트 컴포넌트를 정의하세요.
+  // 아래 내용들은 다른 파일로부터 가져올 수 있습니다.
+  const Foo = { template: '<div>foo</div>' }
+  const Bar = { template: '<div>bar</div>' }
+  
+  // 2. 라우트를 정의하세요.
+  // Each route should map to a component. The "component" can
+  // 각 라우트는 반드시 컴포넌트와 매핑되어야 합니다.
+  // "component"는 `Vue.extend()`를 통해 만들어진
+  // 실제 컴포넌트 생성자이거나 컴포넌트 옵션 객체입니다.
+  const routes = [
+    { path: '/foo', component: Foo },
+    { path: '/bar', component: Bar }
+  ]
+  
+  // 3. `routes` 옵션과 함께 router 인스턴스를 만드세요.
+  // 추가 옵션을 여기서 전달해야합니다.
+  // 지금은 간단하게 유지하겠습니다.
+  const router = new VueRouter({
+    routes // `routes: routes`의 줄임
+  })
+  
+  // 4. 루트 인스턴스를 만들고 mount 하세요.
+  // router와 router 옵션을 전체 앱에 주입합니다.
+  const app = new Vue({
+    router
+  }).$mount('#app')
+  
+  // 이제 앱이 시작됩니다!
+  ```
+
+  이제 위와 같이 작성된 어플리케이션은 ```/foo```로 접근하면 Foo컴포넌트가 렌더링 되고, ```/bar```로 접근하면 Bar컴포넌트가 렌더링된다.
+
+
+
+##### Nested Routers
+
+> 라우터를 이용해 화면을 이동할 때 **중첩된 라우트(Nested Route)**를 이용하여 여러개의 컴포넌트를 렌더링 할 수 있다.
+>
+> 렌더링 되는 컴포넌트의 구조는 가장 큰 상위의 컴포넌트가 하위의 컴포넌트를 포함하는 ```Parent - Child```형태와 같다.
+
+```html
+<!-- localhost:5000 -->
+<div id="app">
+  <router-view></router-view>
+</div>
+
+<!-- localhost:5000/home -->
+<div>
+  <p>Main Component rendered</p>
+  <app-header></app-header>
+</div>
+```
+
+```js
+// localhost:5000/home 에 접근하면 Main 과 Header 컴포넌트 둘다 렌더링 된다.
+{
+  path : '/home',
+  component: Main,
+  children: [
+    {
+      path: '/',
+      component: AppHeader
+    },
+    {
+      path: '/list',
+      component: List
+    },
+  ]
+}
+```
+
+
 
