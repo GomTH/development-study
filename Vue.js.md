@@ -481,7 +481,7 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
 
 ##### Nested Routers
 
-> 라우터를 이용해 화면을 이동할 때 **중첩된 라우트(Nested Route)**를 이용하여 여러개의 컴포넌트를 렌더링 할 수 있다.
+> 라우터를 이용해 화면을 이동할 때 **중첩된 라우트(Nested Route)** 를 이용하여 여러개의 컴포넌트를 렌더링 할 수 있다.
 >
 > 렌더링 되는 컴포넌트의 구조는 가장 큰 상위의 컴포넌트가 하위의 컴포넌트를 포함하는 ```Parent - Child```형태와 같다.
 
