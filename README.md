@@ -4,3 +4,4 @@
 - HTTP
 - MVC
 - Vue.js
+- MySQL Join
