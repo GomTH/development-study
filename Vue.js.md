@@ -518,3 +518,15 @@ Vue,js의 라이프 사이클은 크게 Creation, Mounting, Updating, Destructio
 
 
 
+##### HTML5 History Mode
+
+> ```vue-router```의 기본 모드는 *hash mode*로 URL 해시를 사용하여 전체 URL을 시뮬레이트하므로 URL이 변경될 때 페이지가 다시 로드 되지 않습니다. 하지만 미관상(?) 좋지 못합니다.
+>
+> 그래서, 해시를 제거하기 위해 라우터의 **history mode** 를 사용할 수 있습니다. `history.pushState` API를 활용하여 페이지를 다시 로드하지 않고도 URL 탐색을 할 수 있습니다.
+
+```js
+const router = new VueRouter({
+  mode: 'history',
+  routes: [...]
+})
+```
