@@ -1,6 +1,6 @@
 # Join 이란
 
-> 조인이란 여러 테이블에 흩어져 있는 정보 중 사용자가 필요한 정보만 가져와서 가상의 테이블처럼 만들어서 결과를 보여주는 것으로 2개의 테이블을 조합하여 하나의 열로 표현하는 것이다.
+> 조인이란 여러 테이블에 흩어져 있는 정보 중 사용자가 필요한 정보만 가져온뒤 가상의 테이블처럼 만들어서 결과를 보여주는 것으로 2개의 테이블을 조합하여 하나의 열로 표현하는 것이다.
 
 #### Join의 종류로는 크게 3가지가 있다.
 
@@ -22,7 +22,7 @@
 select * from user join post on user.id=post.user_id;
 ```
 
-**이 쿼리문은 user테이블의 id와 post테이블의 user_id가 같은 행을 반환한다.(단 만약 user가 post를 갖지 않았다면 값을 가져오지 않는다.)**
+**이 쿼리문은 user테이블의 id와 post테이블의 user_id가 같은 데이터를 반환한다.(단 만약 user가 post를 갖지 않았다면 데이터를 가져오지 않는다.)**
 
 
 
@@ -50,7 +50,7 @@ select * from user join post on user.id=post.user_id;
 select * from user left join post on user.id=post.user_id; 
 ```
 
-**이 쿼리문은 user테이블의 모든 행과, user.id와 post.user_id가 같은 행을 반환한다.(단 user가 post를 갖지 않은 상태라면 join된 post행은 NULL로 표시된다.)**
+**이 쿼리문은 user테이블의 모든 데이터와, user.id와 post.user_id가 같은 데이터를 반환한다.(단 user가 post를 갖지 않은 상태라면 join된 post데이터는 NULL로 표시된다.)**
 
 
 
@@ -64,7 +64,7 @@ select * from user left join post on user.id=post.user_id;
 select * from user right join post on user.id=post.user_id;
 ```
 
-**이 쿼리문은 post테이블의 모든 행과, user.id와 post.user_id가 같은 행을 반환한다.(단 post가 user를 갖지 않은 상태라면 join된 user행은 NULL로 표시된다.)**
+**이 쿼리문은 post테이블의 모든 데이터와, user.id와 post.user_id가 같은 데이터를 반환한다.(단 post가 user를 갖지 않은 상태라면 join된 user데이터는 NULL로 표시된다.)**
 
 
 
@@ -80,4 +80,4 @@ union
 select * from user right join post on user.id=post.user_id;
 ```
 
-MySQL에서는 Full Outer Join을 지원하지 않는다. 그래서 MySQL의 UNION기능을 사용해, Full Outer Join을 사용할 수 있다.
+**MySQL에서는 Full Outer Join을 지원하지 않는다. 그래서 MySQL의 UNION기능을 사용해, Full Outer Join을 사용할 수 있다.**
