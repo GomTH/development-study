@@ -9,7 +9,9 @@
 ## HTTP의 특징
 - HTTP는 연결 상태를 유지하지 않는 비연결성 프로토콜 이다.
 
-- HTTP는 요청/응답(request/response) 방식으로 동작한다. ![통신그림](https://t1.daumcdn.net/cfile/tistory/99971F345A93FB6D39)
+- HTTP는 요청/응답(request/response) 방식으로 동작한다.
+  
+![통신그림](https://t1.daumcdn.net/cfile/tistory/99971F345A93FB6D39)
 
 - HTTP는 요청과 응답을 메시지(http message)를 통해 데이터를 교환한다.
 ---
