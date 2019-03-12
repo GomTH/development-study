@@ -6,4 +6,5 @@
 - Vue.js
 - MySQL Join
 - Framework vs Library
+- Ajax
 
